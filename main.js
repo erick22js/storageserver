@@ -11,7 +11,7 @@ const file_ico = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAo
 // Properties
 const hostname = '127.0.0.1'; // localhost
 const port = process.argv.length > 3? process.argv[3]: 3000;
-const base_path = process.argv.length > 2? process.argv[2]: '';
+const base_path = process.argv.length > 2? process.argv[2]: 'C:/documents';
 
 // Enable raw mode on stdin
 process.stdin.setRawMode(true);
@@ -56,6 +56,8 @@ const server = http.createServer((req, res) => {
 	}
 	else {
 		res.statusCode = 404; // Not Found
+		res.setHeader('Content-Type', 'text/html');
+		res.end('<h2>File Not Found!</h2>');
 	}
 });
 
